@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    public float coyoteTime;
+    private float coyoteTimeCounter;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -55,9 +58,15 @@ public class PlayerMovement : MonoBehaviour
 
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+            coyoteTimeCounter = coyoteTime;
+        }
         else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
             rb.drag = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -71,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if(Input.GetKey(jumpKey) && readyToJump && (grounded || coyoteTimeCounter > 0f))
         {
             readyToJump = false;
 
@@ -105,15 +114,13 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
-
-        text_speed.SetText("Speed: " + flatVel.magnitude);
     }
 
     private void Jump()
     {
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+        coyoteTimeCounter = 0f;
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
