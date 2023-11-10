@@ -5,8 +5,37 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public MovementState state;
+
+    public enum MovementState
+    {
+        freeze,
+        unlimited,
+        walking,
+        sprinting,
+
+
+        vaulting,
+        crouching,
+        sliding,
+        air
+    }
+
+    public bool sliding;
+    public bool crouching;
+
+
+    public bool vaulting;
+
+    public bool freeze;
+    public bool unlimited;
+
+    public bool restricted;
+
+
     [Header("Movement")]
     public float moveSpeed;
+    public float vaultSpeed;
 
     public float groundDrag;
 
@@ -38,7 +67,38 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    [HideInInspector] public TextMeshProUGUI text_speed;
+    private void StateHandler()
+    {
+        if(freeze)
+        {
+            state = MovementState.freeze;
+            rb.velocity = Vector3.zero;
+        }
+        else if (unlimited)
+        {
+            state = MovementState.unlimited;
+            moveSpeed = 999f;
+            return;
+        }
+        else if (sliding)
+        {
+            state = MovementState.sliding;
+            moveSpeed = 999f;
+            return;
+        }
+        else if (crouching)
+        {
+            state = MovementState.crouching;
+            moveSpeed = 999f;
+            return;
+        }
+        else if (vaulting)
+        {
+            state = MovementState.vaulting;
+            moveSpeed = vaultSpeed;
+            return;
+        }
+    }
 
     private void Start()
     {
@@ -92,6 +152,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (restricted) return;
+        
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
