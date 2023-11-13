@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float slideSpeed;
     public float vaultSpeed;
     public float airMinSpeed;
+
+    public float coyoteTime;
+    private float coyoteTimeCounter;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -31,10 +35,21 @@ public class PlayerMovement : MonoBehaviour
     public float crouchYScale;
     private float startYScale;
 
+    [Header("Item Handling")]
+    public Transform cameraPos;
+    private RaycastHit itemHit;
+    public LayerMask whatIsItem;
+    public float pickUpTime;
+    public float pickUpTimeCounter;
+    private bool lookingAtItem;
+
+    public Slider mSlider;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode pickUpKey = KeyCode.F;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -87,22 +102,37 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
 
         startYScale = transform.localScale.y;
+
+        pickUpTimeCounter = 0;
+        mSlider.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-
+        lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, playerHeight * 1.3f ,whatIsItem);
+        Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0));
         MyInput();
         SpeedControl();
         StateHandler();
 
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+            coyoteTimeCounter = coyoteTime;
+        }
         else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
             rb.drag = 0;
+        }
+
+        if(lookingAtItem)
+        {
+            Debug.Log("item");
+        }
     }
 
     private void FixedUpdate()
@@ -116,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && (grounded || coyoteTimeCounter > 0f))
         {
             readyToJump = false;
 
@@ -132,6 +162,22 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
             crouching = true;
+        }
+
+        if(Input.GetKey(pickUpKey) && lookingAtItem)
+        {
+            pickUpTimeCounter += Time.deltaTime;
+
+            // update slider 
+            mSlider.gameObject.SetActive(true);
+            mSlider.normalizedValue = pickUpTimeCounter/pickUpTime;
+
+            PickUpItem();
+        }
+        else
+        {
+            mSlider.gameObject.SetActive(false);
+            pickUpTimeCounter = 0;
         }
 
         // stop crouch
@@ -319,6 +365,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        coyoteTimeCounter = 0f;
     }
     private void ResetJump()
     {
@@ -348,5 +396,13 @@ public class PlayerMovement : MonoBehaviour
     {
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
+    }
+
+    void PickUpItem()
+    {
+        if(pickUpTimeCounter >= pickUpTime)
+        {
+            Destroy(itemHit.collider.gameObject);
+        }
     }
 }
