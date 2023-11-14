@@ -103,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
         startYScale = transform.localScale.y;
 
+        playerHeight *= transform.localScale.x;
+
         pickUpTimeCounter = 0;
         mSlider.gameObject.SetActive(false);
     }
@@ -113,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, playerHeight * 1.3f ,whatIsItem);
         Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0));
+        
         MyInput();
         SpeedControl();
         StateHandler();
@@ -402,6 +405,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if(pickUpTimeCounter >= pickUpTime)
         {
+            //item type checks
+            if(itemHit.collider.gameObject.tag == "Shrink Potion")
+            {
+                //subtract uniform scale
+                transform.localScale -= new Vector3(1,1,1);
+            }
+            if(itemHit.collider.gameObject.tag == "Grow Potion")
+            {
+                //add uniform scale
+                transform.localScale += new Vector3(1,1,1);
+            }
             Destroy(itemHit.collider.gameObject);
         }
     }
