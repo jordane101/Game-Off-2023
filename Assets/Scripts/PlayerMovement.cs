@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     private float moveSpeed;
+    private float scaledMoveSpeed;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
     public float walkSpeed;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public float playerHeight;
+    private float scaledPlayerHeight;
     public LayerMask whatIsGround;
     public bool grounded;
 
@@ -60,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
+
+    [Header("Scaling")]
+    public int playerScale;
 
     public Transform orientation;
 
@@ -103,17 +108,21 @@ public class PlayerMovement : MonoBehaviour
 
         startYScale = transform.localScale.y;
 
-        playerHeight *= transform.localScale.x;
 
         pickUpTimeCounter = 0;
         mSlider.gameObject.SetActive(false);
+
+        scaledMoveSpeed = moveSpeed * playerScale;
+        scaledPlayerHeight *= playerScale;
+        ScalePlayer(playerScale);
     }
 
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, playerHeight * 1.3f ,whatIsItem);
+        grounded = Physics.Raycast(transform.position, Vector3.down, scaledPlayerHeight * 0.5f + 0.2f, whatIsGround);
+        Debug.DrawRay(transform.position, Vector3.down, new Color(200,200,0), scaledPlayerHeight * 0.5f + 0.2f);
+        lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, scaledPlayerHeight * 1.3f ,whatIsItem);
         Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0));
         
         MyInput();
@@ -337,6 +346,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void ScalePlayer(int newScale)
+    {
+        transform.localScale = new Vector3(newScale,newScale,newScale);
+        scaledPlayerHeight = playerHeight * newScale;
+        scaledMoveSpeed = moveSpeed * newScale;
+        playerScale = newScale;
+    }
+
     private void SpeedControl()
     {
         // limiting speed on slope
@@ -409,12 +426,12 @@ public class PlayerMovement : MonoBehaviour
             if(itemHit.collider.gameObject.tag == "Shrink Potion")
             {
                 //subtract uniform scale
-                transform.localScale -= new Vector3(1,1,1);
+                ScalePlayer(playerScale-1);
             }
             if(itemHit.collider.gameObject.tag == "Grow Potion")
             {
                 //add uniform scale
-                transform.localScale += new Vector3(1,1,1);
+                ScalePlayer(playerScale+1);
             }
             Destroy(itemHit.collider.gameObject);
         }

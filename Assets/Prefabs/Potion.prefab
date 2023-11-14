@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8360811751432685681}
-  m_Layer: 0
+  - component: {fileID: 9090880197500246856}
+  m_Layer: 8
   m_Name: Potion
-  m_TagString: Untagged
+  m_TagString: Shrink Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,107 +27,19 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2217577115856451428}
+  - {fileID: 8746744948746654852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1823064900723134607
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8360811751432685681}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_Name
-      value: potion bottle
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shrink Potion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2695646755846384950}
-  m_SourcePrefab: {fileID: 100100000, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3, type: 3}
---- !u!1 &1553102022886616542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1823064900723134607}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &2695646755846384950
+--- !u!135 &9090880197500246856
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553102022886616542}
+  m_GameObject: {fileID: 5145951851661873786}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -139,11 +52,116 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.04335056
-  m_Center: {x: 0, y: 0, z: -0.075}
---- !u!4 &2217577115856451428 stripped
+  m_Radius: 0.85
+  m_Center: {x: 0, y: -0.75, z: 0}
+--- !u!1001 &9144584663732450159
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8360811751432685681}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5335144657313714839, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: ef08ba3990ca25944ab15bf6eba7c6af,
+        type: 3}
+    - target: {fileID: -3941164549346772188, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2867603562488604470, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad8114191104b3445b0a32d11593e4bb, type: 2}
+    - target: {fileID: 364111982436210763, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: b3fe8cdff8d72cc409587529f541c6f6,
+        type: 3}
+    - target: {fileID: 919132149155446097, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Name
+      value: potion bottle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588042848241602589, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447909708070721744, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: faaa902a49bedbc428ed390a13660acd, type: 3}
+--- !u!4 &8746744948746654852 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c906ab2a8fe96344aa2e5d21a1c9d6f3,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
     type: 3}
-  m_PrefabInstance: {fileID: 1823064900723134607}
+  m_PrefabInstance: {fileID: 9144584663732450159}
   m_PrefabAsset: {fileID: 0}
