@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7809920043222433398}
   - component: {fileID: 4156688823466727041}
   m_Layer: 8
-  m_Name: Potion
+  m_Name: Shrink Potion
   m_TagString: Shrink Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,22 +181,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.026835203
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1250466
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.97773826
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.20982818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 24.225
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
@@ -222,6 +222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5335144657313714839, guid: faaa902a49bedbc428ed390a13660acd,
         type: 3}
@@ -268,7 +273,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: faaa902a49bedbc428ed390a13660acd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8274839763173297959}
   m_SourcePrefab: {fileID: 100100000, guid: faaa902a49bedbc428ed390a13660acd, type: 3}
 --- !u!1 &4850993749436722111 stripped
 GameObject:
@@ -276,6 +285,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9144584663732450159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8226245406343614014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: faaa902a49bedbc428ed390a13660acd,
+    type: 3}
+  m_PrefabInstance: {fileID: 9144584663732450159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8274839763173297959
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226245406343614014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: badf9f3b20b13da4db73f5385d5c2072, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &8746744948746654852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faaa902a49bedbc428ed390a13660acd,

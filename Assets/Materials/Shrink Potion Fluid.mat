@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fluid Variant
+  m_Name: Shrink Potion Fluid
   m_Shader: {fileID: -6465566751694194690, guid: 339a905a821fc544589216cdbc618a7f,
     type: 3}
   m_Parent: {fileID: -876546973899608171, guid: 339a905a821fc544589216cdbc618a7f,
@@ -30,8 +30,8 @@ Material:
     - _Fill: 0.807
     - _QueueControl: 0
     m_Colors:
-    - _Side_Color: {r: 0, g: 0.26207733, b: 0.4245283, a: 0}
-    - _TopColor: {r: 0.007843154, g: 0.58431375, b: 0.47511774, a: 0}
+    - _Side_Color: {r: 0, g: 0.39512318, b: 0.42352942, a: 0}
+    - _TopColor: {r: 0.007843154, g: 0.58431375, b: 0.34165716, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8890324921378835936
 MonoBehaviour:
