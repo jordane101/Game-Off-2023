@@ -27,7 +27,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Fill: 0.606
+    - _Fill: 0.807
     - _QueueControl: 0
     m_Colors:
     - _Side_Color: {r: 0, g: 0.26207733, b: 0.4245283, a: 0}

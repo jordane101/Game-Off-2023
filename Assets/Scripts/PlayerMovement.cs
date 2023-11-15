@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Slider mSlider;
 
+    [Header("Sound")]
+    private AudioSource audioData;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
@@ -121,9 +124,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, scaledPlayerHeight * 0.5f + 0.2f, whatIsGround);
-        Debug.DrawRay(transform.position, Vector3.down, new Color(200,200,0), scaledPlayerHeight * 0.5f + 0.2f);
+        //Debug.DrawRay(transform.position, Vector3.down, new Color(200,200,0), scaledPlayerHeight * 0.5f + 0.2f);
         lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, scaledPlayerHeight * 1.3f ,whatIsItem);
-        Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0));
+        //Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0), scaledPlayerHeight *1.3f);
         
         MyInput();
         SpeedControl();
@@ -139,11 +142,6 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
             rb.drag = 0;
-        }
-
-        if(lookingAtItem)
-        {
-            Debug.Log("item");
         }
     }
 
@@ -178,18 +176,30 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(pickUpKey) && lookingAtItem)
         {
+            if(pickUpTimeCounter == 0)
+            {
+                audioData = itemHit.collider.gameObject.GetComponent<AudioSource>();
+                audioData.Play(0);
+            }
             pickUpTimeCounter += Time.deltaTime;
 
+            //drink potion animation
+            GameObject fluid = itemHit.collider.gameObject.GetComponent<PotionScript>().container;
+            fluid.GetComponent<Renderer>().material.SetFloat("_Fill", (pickUpTime-pickUpTimeCounter)/pickUpTime);
+           
             // update slider 
             mSlider.gameObject.SetActive(true);
             mSlider.normalizedValue = pickUpTimeCounter/pickUpTime;
-
             PickUpItem();
         }
         else
         {
             mSlider.gameObject.SetActive(false);
             pickUpTimeCounter = 0;
+            if(audioData != null && audioData.isPlaying)
+            {
+                audioData.Stop();
+            }
         }
 
         // stop crouch
@@ -326,18 +336,18 @@ public class PlayerMovement : MonoBehaviour
 
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        moveDirection.y = 0;
         // on slope
-        if (OnSlope() && !exitingSlope)
-        {
-            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+        // if (OnSlope() && !exitingSlope)
+        // {
+        //     rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
-            if (rb.velocity.y > 0)
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        }
+        //     if (rb.velocity.y > 0)
+        //         rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+        // }
 
         // on ground
-        else if (grounded)
+        if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
@@ -348,10 +358,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void ScalePlayer(int newScale)
     {
-        transform.localScale = new Vector3(newScale,newScale,newScale);
-        scaledPlayerHeight = playerHeight * newScale;
-        scaledMoveSpeed = moveSpeed * newScale;
-        playerScale = newScale;
+        if(newScale > 0)
+        {
+            transform.localScale = new Vector3(newScale,newScale,newScale);
+            scaledPlayerHeight = playerHeight * newScale;
+            scaledMoveSpeed = moveSpeed * newScale;
+            playerScale = newScale;
+        }
     }
 
     private void SpeedControl()
@@ -417,7 +430,6 @@ public class PlayerMovement : MonoBehaviour
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
     }
-
     void PickUpItem()
     {
         if(pickUpTimeCounter >= pickUpTime)
@@ -432,6 +444,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 //add uniform scale
                 ScalePlayer(playerScale+1);
+            }
+            if(audioData.isPlaying)
+            {
+                audioData.Stop();
             }
             Destroy(itemHit.collider.gameObject);
         }
