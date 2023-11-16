@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    public float scaledJumpForce;
 
     [Header("Crouching")]
     private float scaledCrouchSpeed;
@@ -85,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
-
+    public float staticMass;
+    private float scaledMass;
     public MovementState state;
     public enum MovementState
     {
@@ -213,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
         // stop crouch
         if (Input.GetKeyUp(crouchKey))
         {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale * playerScale, transform.localScale.z);
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
 
             crouching = false;
         }
@@ -226,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
         if (freeze)
         {
             state = MovementState.freeze;
+            restricted = true;
             rb.velocity = Vector3.zero;
             desiredMoveSpeed = 0f;
         }
@@ -235,6 +238,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.unlimited;
             desiredMoveSpeed = 999f;
+            restricted = false;
         }
 
         // Mode - Vaulting
@@ -242,12 +246,14 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.vaulting;
             desiredMoveSpeed = vaultSpeed;
+            restricted = false;
         }
 
         // Mode - Sliding
         else if (sliding)
         {
             state = MovementState.sliding;
+            restricted = false;
 
             // increase speed by one every second
             if (OnSlope() && rb.velocity.y < 0.1f)
@@ -265,6 +271,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.crouching;
             desiredMoveSpeed = scaledCrouchSpeed;
+            restricted = false;
         }
 
         // Mode - Sprinting
@@ -272,23 +279,26 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = scaledSprintSpeed;
+            restricted = false;
         }
 
         // Mode - Walking
         else if (grounded)
         {
+            restricted = false;
             state = MovementState.walking;
             desiredMoveSpeed = scaledWalkSpeed;
         }
 
         // Mode - Air
-        else
+        else if (!grounded)
         {
             state = MovementState.air;
-
+            restricted = true;
             if (moveSpeed < airMinSpeed)
                 desiredMoveSpeed = airMinSpeed;
         }
+
 
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
 
@@ -373,6 +383,16 @@ public class PlayerMovement : MonoBehaviour
             scaledWalkSpeed = walkSpeed * newScale;
             scaledSprintSpeed = sprintSpeed * newScale;
             scaledCrouchSpeed = crouchSpeed * newScale;
+            scaledJumpForce = jumpForce * newScale;
+            scaledMass = staticMass * newScale;
+            startYScale = newScale;
+            if (scaledMass < 4f)
+            {
+                rb.mass = scaledMass-0.25f;
+            }else
+            {
+                rb.mass = scaledMass;
+            }
             playerScale = newScale;
         }
     }
@@ -407,7 +427,7 @@ public class PlayerMovement : MonoBehaviour
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * scaledJumpForce, ForceMode.Impulse);
 
         coyoteTimeCounter = 0f;
     }
@@ -420,7 +440,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, scaledPlayerHeight * 0.5f + 0.3f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;

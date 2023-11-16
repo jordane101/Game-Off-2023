@@ -73,7 +73,7 @@ public class LedgeGrabbing : MonoBehaviour
 
     private void LedgeDetection()
     {
-        bool ledgeDetected = Physics.SphereCast(transform.position, ledgeSphereCastRadius, cam.forward, out ledgeHit, ledgeDetectionLength, whatIsLedge);
+        bool ledgeDetected = Physics.SphereCast(transform.position, ledgeSphereCastRadius * pm.playerScale, cam.forward, out ledgeHit, ledgeDetectionLength, whatIsLedge);
 
         if (!ledgeDetected) return;
 
@@ -93,7 +93,7 @@ public class LedgeGrabbing : MonoBehaviour
 
     private void DelayedJumpForce()
     {
-        Vector3 forceToAdd = cam.forward * ledgeJumpForwardForce + orientation.up * ledgeJumpUpwardForce;
+        Vector3 forceToAdd = cam.forward * ledgeJumpForwardForce + orientation.up * ledgeJumpUpwardForce * pm.playerScale;
         rb.velocity = Vector3.zero;
         rb.AddForce(forceToAdd, ForceMode.Impulse);
     }
@@ -123,7 +123,7 @@ public class LedgeGrabbing : MonoBehaviour
         if(distanceToLedge > 1f)
         {
             if(rb.velocity.magnitude < moveToLedgeSpeed)
-                rb.AddForce(directionToLedge.normalized * moveToLedgeSpeed * 1000f * Time.deltaTime);
+                rb.AddForce(directionToLedge.normalized * moveToLedgeSpeed * 1000f * Time.deltaTime * pm.playerScale);
         }
 
         // Hold onto ledge
