@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shrink Potion
   - Grow Potion
+  - Radio Button
   layers:
   - Default
   - TransparentFX
