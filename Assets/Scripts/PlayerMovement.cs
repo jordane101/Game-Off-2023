@@ -294,7 +294,6 @@ public class PlayerMovement : MonoBehaviour
         else if (!grounded)
         {
             state = MovementState.air;
-            restricted = true;
             if (moveSpeed < airMinSpeed)
                 desiredMoveSpeed = airMinSpeed;
         }

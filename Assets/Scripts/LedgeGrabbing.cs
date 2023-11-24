@@ -93,7 +93,7 @@ public class LedgeGrabbing : MonoBehaviour
 
     private void DelayedJumpForce()
     {
-        Vector3 forceToAdd = cam.forward * ledgeJumpForwardForce + orientation.up * ledgeJumpUpwardForce * pm.playerScale;
+        Vector3 forceToAdd = cam.forward * ledgeJumpForwardForce * pm.playerScale + orientation.up * ledgeJumpUpwardForce * pm.playerScale;
         rb.velocity = Vector3.zero;
         rb.AddForce(forceToAdd, ForceMode.Impulse);
     }

@@ -51,5 +51,16 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Game-Off-2023.sln"
+    "dotnet.defaultSolution": "Game-Off-2023.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "Cooldown",
+        "Keybinds",
+        "Lerp",
+        "Mathf",
+        "mult",
+        "Raycast",
+        "Rigidbody",
+        "Substate"
+    ]
 }
