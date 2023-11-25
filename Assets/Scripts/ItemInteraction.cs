@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class ItemInteraction : MonoBehaviour
 {
+
     public PlayerMovement pm;
 
     public KeyCode pickUpKey = KeyCode.F;
@@ -52,6 +53,7 @@ public class ItemInteraction : MonoBehaviour
             {
                 //audioData = itemHit.collider.gameObject.GetComponent<AudioSource>();
                 //audioData.Play(0);
+                itemHit.collider.gameObject.GetComponent<PotionScript>().PlayPotionSound();
             }
             pickUpTimeCounter += Time.deltaTime;
 
@@ -69,7 +71,7 @@ public class ItemInteraction : MonoBehaviour
         {
             mSlider.gameObject.SetActive(false);
             pickUpTimeCounter = 0;
-            // if(audioData != null && audioData.isPlaying)
+            // if(itemHit.collider.gameObject != null && audioData.isPlaying)
             // {
             //     audioData.Stop();
             // }

@@ -5,15 +5,9 @@ using UnityEngine;
 public class PotionScript : MonoBehaviour
 {
     public GameObject container;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayPotionSound()
     {
-        
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.potionDrinking,this.transform.position); 
     }
 }
