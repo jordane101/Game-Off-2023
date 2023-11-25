@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
 
-
-
-
     private float scaledWalkSpeed;
     private float scaledSprintSpeed;
     public float walkSpeed;
@@ -45,16 +42,6 @@ public class PlayerMovement : MonoBehaviour
     public float crouchYScale;
     private float startYScale;
 
-    [Header("Item Handling")]
-    public Transform cameraPos;
-    private RaycastHit itemHit;
-    public LayerMask whatIsItem;
-    public float pickUpTime;
-    public float pickUpTimeCounter;
-    private bool lookingAtItem;
-
-    public Slider mSlider;
-
     [Header("Sound")]
     private AudioSource audioData;
 
@@ -66,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public float playerHeight;
-    private float scaledPlayerHeight;
+    public float scaledPlayerHeight;
     public LayerMask whatIsGround;
     public bool grounded;
 
@@ -121,9 +108,6 @@ public class PlayerMovement : MonoBehaviour
 
         startYScale = transform.localScale.y;
 
-        pickUpTimeCounter = 0;
-        mSlider.gameObject.SetActive(false);
-
 
         ScalePlayer(playerScale);
 
@@ -134,7 +118,6 @@ public class PlayerMovement : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, scaledPlayerHeight * 0.5f + 0.2f, whatIsGround);
         //Debug.DrawRay(transform.position, Vector3.down, new Color(200,200,0), scaledPlayerHeight * 0.5f + 0.2f);
-        lookingAtItem = Physics.Raycast(cameraPos.transform.position, cameraPos.transform.forward , out itemHit, scaledPlayerHeight * 1.3f ,whatIsItem);
         //Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0), scaledPlayerHeight *1.3f);
         
 
@@ -182,34 +165,6 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
             crouching = true;
-        }
-
-        if(Input.GetKey(pickUpKey) && lookingAtItem)
-        {
-            if(pickUpTimeCounter == 0)
-            {
-                audioData = itemHit.collider.gameObject.GetComponent<AudioSource>();
-                audioData.Play(0);
-            }
-            pickUpTimeCounter += Time.deltaTime;
-
-            //drink potion animation
-            GameObject fluid = itemHit.collider.gameObject.GetComponent<PotionScript>().container;
-            fluid.GetComponent<Renderer>().material.SetFloat("_Fill", (pickUpTime-pickUpTimeCounter)/pickUpTime);
-           
-            // update slider 
-            mSlider.gameObject.SetActive(true);
-            mSlider.normalizedValue = pickUpTimeCounter/pickUpTime;
-            PickUpItem();
-        }
-        else
-        {
-            mSlider.gameObject.SetActive(false);
-            pickUpTimeCounter = 0;
-            if(audioData != null && audioData.isPlaying)
-            {
-                audioData.Stop();
-            }
         }
 
         // stop crouch
@@ -373,7 +328,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void ScalePlayer(int newScale)
+    public void ScalePlayer(int newScale)
     {
         if(newScale > 0)
         {
@@ -458,27 +413,5 @@ public class PlayerMovement : MonoBehaviour
     {
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
-    }
-    void PickUpItem()
-    {
-        if(pickUpTimeCounter >= pickUpTime)
-        {
-            //item type checks
-            if(itemHit.collider.gameObject.tag == "Shrink Potion")
-            {
-                //subtract uniform scale
-                ScalePlayer(playerScale-1);
-            }
-            if(itemHit.collider.gameObject.tag == "Grow Potion")
-            {
-                //add uniform scale
-                ScalePlayer(playerScale+1);
-            }
-            if(audioData.isPlaying)
-            {
-                audioData.Stop();
-            }
-            Destroy(itemHit.collider.gameObject);
-        }
     }
 }
