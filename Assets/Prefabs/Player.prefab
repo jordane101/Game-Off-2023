@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2835765944540314197}
   - component: {fileID: 364556036242413486}
   - component: {fileID: 7101180249508204742}
+  - component: {fileID: 4214770061428842729}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -106,20 +107,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbfa80a836676334693cbacb2a792322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  groundDrag: 0
-  jumpForce: 0
-  jumpCooldown: 0
-  airMultiplier: 0
-  coyoteTime: 0
-  walkSpeed: 0
-  sprintSpeed: 0
+  walkSpeed: 7
+  sprintSpeed: 10
+  slideSpeed: 30
+  vaultSpeed: 15
+  airMinSpeed: 7
+  coyoteTime: 0.2
+  speedIncreaseMultiplier: 1.5
+  slopeIncreaseMultiplier: 2.5
+  groundDrag: 5
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.2
+  scaledJumpForce: 0
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
   jumpKey: 32
-  playerHeight: 0
+  sprintKey: 304
+  crouchKey: 306
+  pickUpKey: 102
+  playerHeight: 2
+  scaledPlayerHeight: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  grounded: 0
+  maxSlopeAngle: 60
+  playerScale: 10
   orientation: {fileID: 5291437446074553397}
+  staticMass: 1
+  state: 2
+  sliding: 0
+  crouching: 0
+  vaulting: 0
+  freeze: 0
+  unlimited: 0
+  restricted: 0
+--- !u!114 &4214770061428842729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251946803608610967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be16fe7cbb754852ad7e3138e48aa32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pm: {fileID: 0}
+  pickUpKey: 102
+  cameraPos: {fileID: 2499775999777885592}
+  whatIsItem:
+    serializedVersion: 2
+    m_Bits: 256
+  pickUpTime: 5
+  pickUpTimeCounter: 0
+  mSlider: {fileID: 0}
+  drinkPrompt: {fileID: 0}
+  playerCam: {fileID: 0}
 --- !u!1 &5242325797222634681
 GameObject:
   m_ObjectHideFlags: 0
