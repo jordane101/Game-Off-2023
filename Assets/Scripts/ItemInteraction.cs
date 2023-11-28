@@ -18,6 +18,10 @@ public class ItemInteraction : MonoBehaviour
     public float pickUpTimeCounter;
     private bool lookingAtItem;
 
+    [Header("Interactable")]
+    private bool lookingAtInteractable;
+    public LayerMask whatIsInteractable;
+    private RaycastHit interactableHit;
     public Slider mSlider;
     public TMP_Text drinkPrompt;
 
@@ -32,9 +36,11 @@ public class ItemInteraction : MonoBehaviour
     void Update()
     {
         lookingAtItem = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out itemHit, pm.scaledPlayerHeight * 1.3f ,whatIsItem);
+        lookingAtInteractable = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out interactableHit, pm.scaledPlayerHeight * 1.3f ,whatIsInteractable);
         //Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0), pm.scaledPlayerHeight *1.3f);
 
         CheckForItem();
+        CheckForInteractable();
     }
 
     void CheckForItem()
@@ -78,6 +84,35 @@ public class ItemInteraction : MonoBehaviour
         }
     }
 
+    void CheckForInteractable()
+    {
+
+        if(lookingAtInteractable)
+        {
+            //show interact prompt
+
+        }
+        else
+        {
+            //deactivate interact prompt
+        }
+        if(lookingAtInteractable && Input.GetKey(pickUpKey))
+        {
+            //interact with item
+            if(interactableHit.collider.gameObject.tag == "Door")
+            {
+                DoorScript ds = interactableHit.collider.gameObject.GetComponent<DoorScript>();
+                if(ds.doorScale == pm.playerScale)
+                {
+                    ds.OpenDoorAnimation();
+                }
+                else
+                {
+                    ds.LockedDoorAnimation();
+                }
+            }
+        }
+    }
     void PickUpItem()
     {
         if(pickUpTimeCounter >= pickUpTime)

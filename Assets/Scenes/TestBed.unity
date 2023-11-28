@@ -558,6 +558,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7243480628560980128, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
+        type: 3}
+      propertyPath: doorScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8738745662788480199, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
         type: 3}
       propertyPath: m_Name
@@ -1166,6 +1171,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7243480628560980128, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
+        type: 3}
+      propertyPath: doorScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8738745662788480199, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
         type: 3}
       propertyPath: m_Name
@@ -1592,6 +1602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243480628560980128, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
+        type: 3}
+      propertyPath: doorScale
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8738745662788480199, guid: 1a7424a81b5588f42b15cc7e2aabfb3b,
         type: 3}

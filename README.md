@@ -3,7 +3,7 @@ This is a repo for Merry Shrinkmas, a platformer made for GitHub GameOff 2023 by
 
 ### Known Bugs
 <h3 style="color:red;">SEVERE</h3>
-- player freezes after shrinking / growing
+
 <h3>MODERATE</h3>
 - player sticks to walls 
 <h3>LOW PRIORITY</h3>
