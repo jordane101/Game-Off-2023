@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2549203251926150079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/City
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/City
+  Guid:
+    Data1: -1912431066
+    Data2: 1285705795
+    Data3: 1256539277
+    Data4: 1390816403
+  Banks:
+  - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60750
+--- !u!114 &-2416522908019813307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/AllAmbience
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/AllAmbience
+  Guid:
+    Data1: -345190622
+    Data2: 1223786448
+    Data3: 594206354
+    Data4: -376740579
+  Banks:
+  - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 434552391829738182}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40812
 --- !u!114 &-2173695136875816958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +72,7 @@ MonoBehaviour:
   Path: Assets/Sound Banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638367936879765555
+  lastModified: 638367998429186798
   FileSizes: []
   Exists: 1
 --- !u!114 &-1704944931010635116
@@ -33,10 +90,56 @@ MonoBehaviour:
   Path: Assets/Sound Banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638367936879785552
+  lastModified: 638367998429196794
   FileSizes:
   - Name: 
-    Value: 1088
+    Value: 1318
+  Exists: 1
+--- !u!114 &-1427063389888816771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlayerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlayerFootsteps
+  Guid:
+    Data1: 336006120
+    Data2: 1207212044
+    Data3: 297697940
+    Data4: 23602775
+  Banks:
+  - {fileID: 6583227078888263696}
+  - {fileID: 1961442117177168947}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 550
+--- !u!114 &-871554762576614692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Radio Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/Desktop/Radio Music.bank
+  Name: Desktop/Radio Music
+  StudioPath: bank:/Radio Music
+  lastModified: 638368004702935319
+  FileSizes: []
   Exists: 1
 --- !u!114 &-698544955714840733
 MonoBehaviour:
@@ -58,6 +161,7 @@ MonoBehaviour:
     Data4: 1456751585
   Banks:
   - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -83,18 +187,27 @@ MonoBehaviour:
   - {fileID: -2173695136875816958}
   - {fileID: 223698767940617748}
   - {fileID: 6583227078888263696}
+  - {fileID: 5784763269210293476}
+  - {fileID: 4372345744796807956}
+  - {fileID: -871554762576614692}
+  - {fileID: 1961442117177168947}
   EditorEvents:
-  - {fileID: 7111822888319905494}
   - {fileID: 7824303876811130207}
   - {fileID: -698544955714840733}
   - {fileID: 2723515673917099510}
-  - {fileID: 5024772899192458351}
+  - {fileID: -2549203251926150079}
+  - {fileID: 6886847294356713126}
+  - {fileID: 5039161084302006844}
+  - {fileID: 5746439813766973544}
+  - {fileID: -1427063389888816771}
+  - {fileID: -2416522908019813307}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2173695136875816958}
+  - {fileID: 4372345744796807956}
   StringsBanks:
   - {fileID: -1704944931010635116}
-  cacheTime: 638367936897310942
+  cacheTime: 638368004703359157
   cacheVersion: 131609
 --- !u!114 &223698767940617748
 MonoBehaviour:
@@ -112,6 +225,48 @@ MonoBehaviour:
   Name: Radio Music
   StudioPath: bank:/Radio Music
   lastModified: 638367936886050487
+  FileSizes: []
+  Exists: 1
+--- !u!114 &434552391829738182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AllAmbience/intensity
+  m_EditorClassIdentifier: 
+  Name: intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 4283221246
+    data2: 2645454691
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1961442117177168947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/Desktop/SFX.bank
+  Name: Desktop/SFX
+  StudioPath: bank:/SFX
+  lastModified: 638368004703115565
   FileSizes: []
   Exists: 1
 --- !u!114 &2723515673917099510
@@ -134,6 +289,7 @@ MonoBehaviour:
     Data4: -1674960441
   Banks:
   - {fileID: 223698767940617748}
+  - {fileID: -871554762576614692}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -141,7 +297,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5024772899192458351
+--- !u!114 &4372345744796807956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638368004702655243
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5039161084302006844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,23 +325,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PlayerFootsteps
+  m_Name: event:/Ambience/Birds
   m_EditorClassIdentifier: 
-  Path: event:/PlayerFootsteps
+  Path: event:/Ambience/Birds
   Guid:
-    Data1: 336006120
-    Data2: 1207212044
-    Data3: 297697940
-    Data4: 23602775
+    Data1: -267446897
+    Data2: 1276363361
+    Data3: -505830498
+    Data4: -334833573
   Banks:
-  - {fileID: 6583227078888263696}
-  IsStream: 0
+  - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 550
+  Length: 70750
+--- !u!114 &5746439813766973544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Potion Drinking
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Potion Drinking
+  Guid:
+    Data1: 565851530
+    Data2: 1286262980
+    Data3: 1035132564
+    Data4: -360585331
+  Banks:
+  - {fileID: 6583227078888263696}
+  - {fileID: 1961442117177168947}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7500
+--- !u!114 &5784763269210293476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/Desktop/Ambience.bank
+  Name: Desktop/Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638368004703359157
+  FileSizes: []
+  Exists: 1
 --- !u!114 &6583227078888263696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,10 +404,10 @@ MonoBehaviour:
   Path: Assets/Sound Banks/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638367936887025047
+  lastModified: 638367995567278800
   FileSizes: []
   Exists: 1
---- !u!114 &7111822888319905494
+--- !u!114 &6886847294356713126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,23 +417,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Potion Drinking
+  m_Name: event:/Ambience/Wind
   m_EditorClassIdentifier: 
-  Path: event:/Potion Drinking
+  Path: event:/Ambience/Wind
   Guid:
-    Data1: 565851530
-    Data2: 1286262980
-    Data3: 1035132564
-    Data4: -360585331
+    Data1: -647243208
+    Data2: 1082920908
+    Data3: -1276353646
+    Data4: 1446635699
   Banks:
-  - {fileID: 6583227078888263696}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
+  - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 70750
 --- !u!114 &7824303876811130207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +455,7 @@ MonoBehaviour:
     Data4: -1216007433
   Banks:
   - {fileID: 8543238439002524553}
+  - {fileID: 5784763269210293476}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -255,6 +478,6 @@ MonoBehaviour:
   Path: Assets/Sound Banks/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638367936897310942
+  lastModified: 638367998429534246
   FileSizes: []
   Exists: 1

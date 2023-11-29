@@ -8,7 +8,7 @@ using FMOD.Studio;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField] private TextMeshPro speedText;
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
@@ -127,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
-
         // handle drag
         if (grounded)
         {
@@ -145,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         UpdateSound();
+        UpdateText();
     }
 
     private void MyInput()
@@ -314,13 +314,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         moveDirection.y = 0;
         // on slope
-        // if (OnSlope() && !exitingSlope)
-        // {
-        //     rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+        if (OnSlope() && !exitingSlope)
+        {
+            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
-        //     if (rb.velocity.y > 0)
-        //         rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-        // }
+            if (rb.velocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+        }
 
         // on ground
         if (grounded)
@@ -424,14 +424,23 @@ public class PlayerMovement : MonoBehaviour
         {
             PLAYBACK_STATE playbackState;
             playerFootsteps.getPlaybackState(out playbackState);
+            playerFootsteps.setParameterByName("Speed",0);
             if(playbackState.Equals(PLAYBACK_STATE.STOPPED))
             {
                 playerFootsteps.start();
             }
         }
+        else if(state == MovementState.sprinting)
+        {
+            playerFootsteps.setParameterByName("Speed",1);
+        }
         else
         {
             playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
         }
+    }
+    private void UpdateText()
+    {
+        speedText.GetComponent<TMP_Text>().SetText("Speed:" + moveSpeed.ToString());
     }
 }

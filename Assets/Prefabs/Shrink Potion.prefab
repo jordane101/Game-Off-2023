@@ -88,7 +88,7 @@ MonoBehaviour:
       Data2: 1286262980
       Data3: 1035132564
       Data4: -360585331
-    Path: event:/Potion Drinking
+    Path: event:/SFX/Potion Drinking
   Event: 
   PlayEvent: 0
   StopEvent: 0

@@ -88,13 +88,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdff43bfb9fb548118d36ed3aa310848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <playerFootsteps>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <potionDrinking>k__BackingField:
     Guid:
       Data1: 565851530
       Data2: 1286262980
       Data3: 1035132564
       Data4: -360585331
-    Path: event:/Potion Drinking
+    Path: event:/SFX/Potion Drinking
 --- !u!1 &3269499922240825876
 GameObject:
   m_ObjectHideFlags: 0

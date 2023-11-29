@@ -17,13 +17,14 @@ public class ItemInteraction : MonoBehaviour
     public float pickUpTime;
     public float pickUpTimeCounter;
     private bool lookingAtItem;
-
+    private GameObject item;
     [Header("Interactable")]
     private bool lookingAtInteractable;
     public LayerMask whatIsInteractable;
     private RaycastHit interactableHit;
     public Slider mSlider;
     public TMP_Text drinkPrompt;
+    public TMP_Text interactPrompt;
 
     public Camera playerCam;
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class ItemInteraction : MonoBehaviour
     {
         lookingAtItem = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out itemHit, pm.scaledPlayerHeight * 1.3f ,whatIsItem);
         lookingAtInteractable = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out interactableHit, pm.scaledPlayerHeight * 1.3f ,whatIsInteractable);
-        Debug.DrawRay(cameraPos.transform.position, playerCam.transform.forward * pm.playerScale, new Color(255,0,0));
+        //Debug.DrawRay(cameraPos.transform.position, playerCam.transform.forward * pm.playerScale, new Color(255,0,0));
 
         CheckForItem();
         CheckForInteractable();
@@ -55,16 +56,17 @@ public class ItemInteraction : MonoBehaviour
         }
         if(Input.GetKey(pickUpKey) && lookingAtItem)
         {
+            item = itemHit.collider.gameObject;
             if(pickUpTimeCounter == 0)
             {
                 //audioData = itemHit.collider.gameObject.GetComponent<AudioSource>();
                 //audioData.Play(0);
-                itemHit.collider.gameObject.GetComponent<PotionScript>().PlayPotionSound();
+                item.GetComponent<PotionScript>().PlayPotionSound();
             }
             pickUpTimeCounter += Time.deltaTime;
 
             //potion drinking animation
-            GameObject fluid = itemHit.collider.gameObject.GetComponent<PotionScript>().container;
+            GameObject fluid = item.GetComponent<PotionScript>().container;
             fluid.GetComponent<Renderer>().material.SetFloat("_Fill", (pickUpTime-pickUpTimeCounter)/pickUpTime);
            
             // update slider 
@@ -77,9 +79,9 @@ public class ItemInteraction : MonoBehaviour
         {
             mSlider.gameObject.SetActive(false);
             pickUpTimeCounter = 0;
-            // if(itemHit.collider.gameObject != null && audioData.isPlaying)
+            // if(item != null)
             // {
-            //     audioData.Stop();
+            //     item.GetComponent<PotionScript>().StopPotionSound();
             // }
         }
     }
@@ -90,10 +92,11 @@ public class ItemInteraction : MonoBehaviour
         if(lookingAtInteractable)
         {
             //show interact prompt
-
+            interactPrompt.gameObject.SetActive(true);
         }
         else
         {
+            interactPrompt.gameObject.SetActive(false);
             //deactivate interact prompt
         }
         if(lookingAtInteractable && Input.GetKey(pickUpKey))
