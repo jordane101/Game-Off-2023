@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMOD.Studio;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private float startYScale;
 
     [Header("Sound")]
-    private AudioSource audioData;
+    private EventInstance playerFootsteps;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -107,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
         startYScale = transform.localScale.y;
 
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
 
         ScalePlayer(playerScale);
 
@@ -115,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, scaledPlayerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, scaledPlayerHeight * 0.5f + scaledPlayerHeight * 0.1f, whatIsGround);
         //Debug.DrawRay(transform.position, Vector3.down, new Color(200,200,0), scaledPlayerHeight * 0.5f + 0.2f);
         //Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0), scaledPlayerHeight *1.3f);
         
@@ -140,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        UpdateSound();
     }
 
     private void MyInput()
@@ -245,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode - Air
-        else if (!grounded)
+        else
         {
             state = MovementState.air;
             if (moveSpeed < airMinSpeed)
@@ -412,5 +417,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
+    }
+    private void UpdateSound()
+    {
+        if(state == MovementState.walking && MathF.Sqrt(rb.velocity.x + rb.velocity.z) != 0 )
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+            if(playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }

@@ -37,7 +37,7 @@ public class ItemInteraction : MonoBehaviour
     {
         lookingAtItem = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out itemHit, pm.scaledPlayerHeight * 1.3f ,whatIsItem);
         lookingAtInteractable = Physics.Raycast(cameraPos.transform.position, playerCam.transform.forward , out interactableHit, pm.scaledPlayerHeight * 1.3f ,whatIsInteractable);
-        //Debug.DrawRay(cameraPos.transform.position, cameraPos.transform.forward, new Color(255,0,0), pm.scaledPlayerHeight *1.3f);
+        Debug.DrawRay(cameraPos.transform.position, playerCam.transform.forward * pm.playerScale, new Color(255,0,0));
 
         CheckForItem();
         CheckForInteractable();

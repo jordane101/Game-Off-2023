@@ -15,10 +15,12 @@ public class DoorScript : MonoBehaviour
     }
     public void OpenDoorAnimation()
     {
+        Debug.Log("Open door");
         transform.RotateAround(doorHinge.transform.position, Vector3.up, 20 * Time.deltaTime);
     }
     public void LockedDoorAnimation()
     {
+        Debug.Log("Closed door");
         anim.Play("LockedDoor");
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8889247160903677330
+--- !u!114 &-2173695136875816958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,14 +10,61 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Build/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638365241020000000
+  Path: Assets/Sound Banks/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638367936879765555
   FileSizes: []
   Exists: 1
+--- !u!114 &-1704944931010635116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638367936879785552
+  FileSizes:
+  - Name: 
+    Value: 1088
+  Exists: 1
+--- !u!114 &-698544955714840733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambient Noise
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient Noise
+  Guid:
+    Data1: 1579775521
+    Data2: 1239387041
+    Data3: 2146126738
+    Data4: 1456751585
+  Banks:
+  - {fileID: 8543238439002524553}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,19 +78,25 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 9169558989460553023}
-  - {fileID: 3313017082944181676}
-  - {fileID: -8889247160903677330}
+  - {fileID: -1704944931010635116}
+  - {fileID: 8543238439002524553}
+  - {fileID: -2173695136875816958}
+  - {fileID: 223698767940617748}
+  - {fileID: 6583227078888263696}
   EditorEvents:
   - {fileID: 7111822888319905494}
+  - {fileID: 7824303876811130207}
+  - {fileID: -698544955714840733}
+  - {fileID: 2723515673917099510}
+  - {fileID: 5024772899192458351}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3313017082944181676}
+  - {fileID: -2173695136875816958}
   StringsBanks:
-  - {fileID: 9169558989460553023}
-  cacheTime: 638365241020000000
+  - {fileID: -1704944931010635116}
+  cacheTime: 638367936897310942
   cacheVersion: 131609
---- !u!114 &3313017082944181676
+--- !u!114 &223698767940617748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,12 +106,84 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Radio Music.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Build/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638365241020000000
+  Path: Assets/Sound Banks/Radio Music.bank
+  Name: Radio Music
+  StudioPath: bank:/Radio Music
+  lastModified: 638367936886050487
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2723515673917099510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Radio Song 1
+  m_EditorClassIdentifier: 
+  Path: event:/Radio Song 1
+  Guid:
+    Data1: -526323343
+    Data2: 1088991455
+    Data3: -1844480865
+    Data4: -1674960441
+  Banks:
+  - {fileID: 223698767940617748}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5024772899192458351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerFootsteps
+  Guid:
+    Data1: 336006120
+    Data2: 1207212044
+    Data3: 297697940
+    Data4: 23602775
+  Banks:
+  - {fileID: 6583227078888263696}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 550
+--- !u!114 &6583227078888263696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound Banks/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638367936887025047
   FileSizes: []
   Exists: 1
 --- !u!114 &7111822888319905494
@@ -80,7 +205,7 @@ MonoBehaviour:
     Data3: 1035132564
     Data4: -360585331
   Banks:
-  - {fileID: -8889247160903677330}
+  - {fileID: 6583227078888263696}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -88,7 +213,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &9169558989460553023
+--- !u!114 &7824303876811130207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Fireplace
+  m_EditorClassIdentifier: 
+  Path: event:/Fireplace
+  Guid:
+    Data1: -1469812218
+    Data2: 1253335067
+    Data3: -679950684
+    Data4: -1216007433
+  Banks:
+  - {fileID: 8543238439002524553}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8543238439002524553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,13 +250,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Ambience.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Build/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638365241020000000
-  FileSizes:
-  - Name: 
-    Value: 810
+  Path: Assets/Sound Banks/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638367936897310942
+  FileSizes: []
   Exists: 1
