@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4493485633359528483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638367998429534246
+  FileSizes:
+  - Name: Desktop
+    Value: 3657664
+  Exists: 1
 --- !u!114 &-2549203251926150079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,8 +39,7 @@ MonoBehaviour:
     Data3: 1256539277
     Data4: 1390816403
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -47,8 +66,7 @@ MonoBehaviour:
     Data3: 594206354
     Data4: -376740579
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -57,44 +75,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 40812
---- !u!114 &-2173695136875816958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638367998429186798
-  FileSizes: []
-  Exists: 1
---- !u!114 &-1704944931010635116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638367998429196794
-  FileSizes:
-  - Name: 
-    Value: 1318
-  Exists: 1
 --- !u!114 &-1427063389888816771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +94,7 @@ MonoBehaviour:
     Data3: 297697940
     Data4: 23602775
   Banks:
-  - {fileID: 6583227078888263696}
-  - {fileID: 1961442117177168947}
+  - {fileID: 3908761188273001528}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -123,24 +102,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 550
---- !u!114 &-871554762576614692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Radio Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Desktop/Radio Music.bank
-  Name: Desktop/Radio Music
-  StudioPath: bank:/Radio Music
-  lastModified: 638368004702935319
-  FileSizes: []
-  Exists: 1
 --- !u!114 &-698544955714840733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,8 +121,7 @@ MonoBehaviour:
     Data3: 2146126738
     Data4: 1456751585
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -169,6 +129,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-435085091834733995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Radio Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build/Desktop/Radio
+    Music.bank
+  Name: Radio Music
+  StudioPath: bank:/Radio Music
+  lastModified: 638367936886050487
+  FileSizes:
+  - Name: Desktop
+    Value: 617024
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,15 +163,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1704944931010635116}
-  - {fileID: 8543238439002524553}
-  - {fileID: -2173695136875816958}
-  - {fileID: 223698767940617748}
-  - {fileID: 6583227078888263696}
-  - {fileID: 5784763269210293476}
-  - {fileID: 4372345744796807956}
-  - {fileID: -871554762576614692}
-  - {fileID: 1961442117177168947}
+  - {fileID: 2697788142437536515}
+  - {fileID: -4493485633359528483}
+  - {fileID: 5338505268503354059}
+  - {fileID: -435085091834733995}
+  - {fileID: 3908761188273001528}
   EditorEvents:
   - {fileID: 7824303876811130207}
   - {fileID: -698544955714840733}
@@ -203,30 +180,11 @@ MonoBehaviour:
   - {fileID: -2416522908019813307}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2173695136875816958}
-  - {fileID: 4372345744796807956}
+  - {fileID: 5338505268503354059}
   StringsBanks:
-  - {fileID: -1704944931010635116}
-  cacheTime: 638368004703359157
+  - {fileID: 2697788142437536515}
+  cacheTime: 638367998429534246
   cacheVersion: 131609
---- !u!114 &223698767940617748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Radio Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Radio Music.bank
-  Name: Radio Music
-  StudioPath: bank:/Radio Music
-  lastModified: 638367936886050487
-  FileSizes: []
-  Exists: 1
 --- !u!114 &434552391829738182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +209,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &1961442117177168947
+--- !u!114 &2697788142437536515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,13 +219,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/SFX.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Desktop/SFX.bank
-  Name: Desktop/SFX
-  StudioPath: bank:/SFX
-  lastModified: 638368004703115565
-  FileSizes: []
+  Path: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638367998429196794
+  FileSizes:
+  - Name: Desktop
+    Value: 1318
   Exists: 1
 --- !u!114 &2723515673917099510
 MonoBehaviour:
@@ -288,8 +248,7 @@ MonoBehaviour:
     Data3: -1844480865
     Data4: -1674960441
   Banks:
-  - {fileID: 223698767940617748}
-  - {fileID: -871554762576614692}
+  - {fileID: -435085091834733995}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -297,7 +256,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &4372345744796807956
+--- !u!114 &3908761188273001528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,13 +266,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.bank
+  m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Desktop/Master.bank
-  Name: Desktop/Master
-  StudioPath: bank:/Master
-  lastModified: 638368004702655243
-  FileSizes: []
+  Path: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638367995567278800
+  FileSizes:
+  - Name: Desktop
+    Value: 102304
   Exists: 1
 --- !u!114 &5039161084302006844
 MonoBehaviour:
@@ -334,8 +295,7 @@ MonoBehaviour:
     Data3: -505830498
     Data4: -334833573
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -343,6 +303,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 70750
+--- !u!114 &5338505268503354059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638367998429186798
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
 --- !u!114 &5746439813766973544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,8 +342,7 @@ MonoBehaviour:
     Data3: 1035132564
     Data4: -360585331
   Banks:
-  - {fileID: 6583227078888263696}
-  - {fileID: 1961442117177168947}
+  - {fileID: 3908761188273001528}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -371,42 +350,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 7500
---- !u!114 &5784763269210293476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Ambience.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Desktop/Ambience.bank
-  Name: Desktop/Ambience
-  StudioPath: bank:/Ambience
-  lastModified: 638368004703359157
-  FileSizes: []
-  Exists: 1
---- !u!114 &6583227078888263696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638367995567278800
-  FileSizes: []
-  Exists: 1
 --- !u!114 &6886847294356713126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,8 +369,7 @@ MonoBehaviour:
     Data3: -1276353646
     Data4: 1446635699
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -454,8 +396,7 @@ MonoBehaviour:
     Data3: -679950684
     Data4: -1216007433
   Banks:
-  - {fileID: 8543238439002524553}
-  - {fileID: 5784763269210293476}
+  - {fileID: -4493485633359528483}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -463,21 +404,3 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8543238439002524553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambience.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound Banks/Ambience.bank
-  Name: Ambience
-  StudioPath: bank:/Ambience
-  lastModified: 638367998429534246
-  FileSizes: []
-  Exists: 1

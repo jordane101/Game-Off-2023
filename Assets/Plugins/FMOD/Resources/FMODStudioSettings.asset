@@ -281,10 +281,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
-  sourceProjectPath: 
-  sourceBankPath: Assets/Sound Banks
+  HasSourceProject: 1
+  HasPlatforms: 1
+  sourceProjectPath: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/MerryShrinkmasAudio.fspro
+  sourceBankPath: ../../../Creative Cloud Files/Music/FMOD/MerryShrinkmasAudio/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -307,12 +307,8 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  - Desktop/Master
   Banks:
   - Ambience
-  - Desktop/Ambience
-  - Desktop/Radio Music
-  - Desktop/SFX
   - Radio Music
   - SFX
   BanksToLoad:

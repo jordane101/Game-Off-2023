@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorScript : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class DoorScript : MonoBehaviour
     public void OpenDoorAnimation()
     {
         Debug.Log("Open door");
+        if (this.name== "ExitDoor")
+        {
+            //end game or whatever
+            SceneManager.LoadScene("EndGame");
+        }
         //Do open door stuff
     }
     public void LockedDoorAnimation()
@@ -21,4 +27,5 @@ public class DoorScript : MonoBehaviour
         Debug.Log("Closed door");
         //play locked door sound
     }
+
 }

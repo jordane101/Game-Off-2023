@@ -8,7 +8,7 @@ using FMOD.Studio;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro speedText;
+    //[SerializeField] private TextMeshPro speedText;
     [Header("Movement")]
     private float moveSpeed;
     private float desiredMoveSpeed;
@@ -333,7 +333,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void ScalePlayer(int newScale)
-    {
+    {   if (newScale <= 0)
+        {
+            ScalePlayer(1);
+        }
         if(newScale > 0)
         {
             transform.localScale = new Vector3(newScale,newScale,newScale);
@@ -441,6 +444,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateText()
     {
-        speedText.GetComponent<TMP_Text>().SetText("Speed:" + moveSpeed.ToString());
+        //speedText.GetComponent<TMP_Text>().SetText("Speed:" + moveSpeed.ToString());
     }
 }

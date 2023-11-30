@@ -124,12 +124,12 @@ public class ItemInteraction : MonoBehaviour
             if(itemHit.collider.gameObject.tag == "Shrink Potion")
             {
                 //subtract uniform scale
-                pm.ScalePlayer(pm.playerScale-1);
+                pm.ScalePlayer(pm.playerScale-2);
             }
             if(itemHit.collider.gameObject.tag == "Grow Potion")
             {
                 //add uniform scale
-                pm.ScalePlayer(pm.playerScale+1);
+                pm.ScalePlayer(pm.playerScale+2);
             }
             // if(audioData.isPlaying)
             // {
